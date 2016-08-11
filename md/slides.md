@@ -35,6 +35,65 @@ Gerard Braad
 
 
 
+## OpenStack components
+
+
+### KeyStone
+
+
+### Nova
+
+
+### Cinder
+
+
+### Glance
+
+
+### Neutron
+
+
+### Horizon
+
+
+### Inter-process communication
+
+
+#### Message Queue
+
+
+#### Rest API
+
+
+##### Resource oriented
+
+
+##### HTTP Verbs/methods
+
+
+## OpenStack deployments
+
+
+## Deployment tools
+
+
+### Puppet modules
+
+
+## Ansible
+
+
+### Fuel
+
+
+### TripleO
+
+
+### OSAD
+
+
+### Kolla
+
 
 
 ## Resources
