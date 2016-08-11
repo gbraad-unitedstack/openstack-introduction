@@ -33,14 +33,35 @@ Gerard Braad
 
 ## What is OpenStack
 
+  * Many definitions
+    * project
+    * foundation
+    * deployed environment
+
+
+## Mission of the project
+
+To produce a ubiquitous Open Source Cloud Computing platform that is easy to use, simple to implement, interoperable between deployments, works well at all scales, and meets the needs of users and operators of both public and private clouds.
+
+
+## Microservices
+
+  * a set of applications
+  * unix philosophy
+    * do one thing
+    * and do it well
+  * communication
 
 
 ## OpenStack components
 
-  * KeyStone
-  * Nova
-  * Neutron
-  
+  * Core services
+    * KeyStone
+    * Nova
+    * Neutron
+    * Glance
+    * Cinder
+
 
 ## KeyStone
 
@@ -130,6 +151,8 @@ Gerard Braad
 
 
 ## Resources
+
+  * http://www.openstack.org/software/project-navigator
 
 
 
