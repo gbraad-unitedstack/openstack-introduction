@@ -33,7 +33,7 @@ Gerard Braad
 
 ## OpenStack
 
-![Diagram](./img/openstack-software-diagram.png)
+![Diagram](img/openstack-software-diagram.png)
 
 
 ## What is OpenStack
@@ -73,9 +73,15 @@ Gerard Braad
 
 ## Understand OpenStack as a community
 
-  * foundation mission
+  * Foundation mission
     * core values
-    * target audience
+    * target 
+
+  * Definition of 'open' / openness
+    * source
+    * community
+    * design
+    * development
 
 
 ## Customer as target audience
@@ -98,7 +104,7 @@ Bridge gap between community
 
 ## Architecture
 
-![Architecture](./img/openstack-architecture.jpg)
+![Architecture](img/openstack-architecture.jpg)
 
 
 ## OpenStack components
@@ -205,6 +211,7 @@ Bridge gap between community
 
 ## Resources
 
+  * https://wiki.openstack.org/wiki/Open
   * http://www.openstack.org/software/project-navigator
 
 
