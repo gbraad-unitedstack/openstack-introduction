@@ -95,6 +95,11 @@ Bridge gap between community
 
 ## Microservices
 
+...
+
+
+## OpenStack services
+
   * a set of applications
   * unix philosophy
     * do one thing
@@ -110,26 +115,83 @@ Bridge gap between community
 ## OpenStack components
 
   * Core services
-    * KeyStone
-    * Nova
-    * Neutron
-    * Glance
-    * Cinder
+    * Identity: Keystone
+    * Dashboard: Horizon
+    * Compute: Nova 
+    * Networking: Neutron
+    * Object Storage: Glance
+    * Block Storage: Cinder
 
 
-## KeyStone
+## Keystone
 
   * [Keystone](http://docs.openstack.org/developer/keystone/) provides Identity, Token, Catalog and Policy services
 
 
 ## Overview
 
-![img]()
+  * User management  
+    Tracks users and their permissions
+
+  * Service catalog  
+    Provides a catalog of available services with their API endpoints
+
+
+## Overview
+
+  * API gateway
+  * Verifies access tokens
+  * Entities and concepts
+    * users
+    * roles
+    * tenants
+    * ...
+
+
+## Inter-process communication
+
+  * Rest API
+  * Resource oriented
+
+
+## Horizon
+
+  * [Horizon](http://docs.openstack.org/developer/horizon/) is the canonical implementation of OpenStack’s Dashboard
+
+Enables cloud administrators and users to manage various OpenStack resources and services.
+
+It enables Web-based interactions with the OpenStack Compute cloud controller through the OpenStack APIs.
+
+
+## Concept of node types
+
+... before I continue...
+
+
+## Controller node
+
+Takes care of the administrational tasks of the OpenStack environment
+
+
+## Compute node
+
+Provides the computing resource for the OpenStack environment
+
+
+## Network node
+
+Handles networking within the OpenStack environment
 
 
 ## Nova
 
   * [Nova](http://docs.openstack.org/developer/nova/) provides power massively scalable, on demand, self service access to compute resources
+
+
+
+## Inter-process communication
+
+  * Message Queue
 
 
 ## Cinder
@@ -147,29 +209,9 @@ Bridge gap between community
   * [Neutron](http://docs.openstack.org/developer/neutron/) provides “network connectivity as a service” between interface devices (e.g., vNICs)
 
 
-## Horizon
-
-  * [Horizon](http://docs.openstack.org/developer/horizon/) is the canonical implementation of OpenStack’s Dashboard
-
-
 ## Swift
 
   * [Swift](http://docs.openstack.org/developer/swift/) is a highly available, distributed, eventually consistent object/blob store
-
-
-## Inter-process communication
-
-
-
-## Message Queue
-
-
-
-## Rest API
-
-
-
-## Resource oriented
 
 
 
@@ -213,6 +255,8 @@ Bridge gap between community
 
   * https://wiki.openstack.org/wiki/Open
   * http://www.openstack.org/software/project-navigator
+  * http://docs.openstack.org/liberty/install-guide-rdo/index.html
+  * https://gitlab.com/gbraad/openstack-handsonlabs
 
 
 
