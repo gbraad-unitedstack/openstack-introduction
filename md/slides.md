@@ -31,6 +31,11 @@ Gerard Braad
   * ...
 
 
+## OpenStack
+
+![Diagram](./img/openstack-software-diagram.png)
+
+
 ## What is OpenStack
 
   * Many definitions
@@ -89,6 +94,11 @@ Bridge gap between community
     * do one thing
     * and do it well
   * communication
+
+
+## Architecture
+
+![Architecture](./img/openstack-architecture.jpg)
 
 
 ## OpenStack components
