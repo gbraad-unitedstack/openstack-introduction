@@ -50,23 +50,50 @@ Gerard Braad
 
 ## What is OpenStack
 
-  * Many definitions
 
 
 ## What is OpenStack
 
   * <span class="lightblue">project</span>
- 
+
+
+## Since 2010
+
+A joint project
+  * Rackspace Hosting  
+    (Cloud Files)
+  * NASA  
+    (Nebula)
+
+to bring 
+_cloud-computing services running on standard hardware_.
+
+
+## "Austin"
+
+First community release followed 4 months later.
+
+  * Object Storage  
+    (Swift)
+  * Compute
+    (Nova)
+
+[Source](https://wiki.openstack.org/wiki/ReleaseNotes/Austin)
+
 
 ## OpenStack Mission
 
-_ _
-
+_To produce a ubiquitous **Open Source Cloud Computing platform** that is **easy to use**, simple to implement, **interoperable between deployments**, works well at all scales, and **meets the needs of users and operators of both public and private clouds**_.
 
 
 ## OpenStack Mission
 
-  * Produce the ubiquitous
+  ... let's review ...
+
+
+## OpenStack Mission
+
+  * Produce a ubiquitous
     _Open Source Cloud Computing_ platform
 
 
@@ -108,8 +135,8 @@ _ _
 
 ## Why would people need OpenStack
 
-  * Legal
-    * regional
+  * Legal reasons
+    * regional / jurisdiction
     * PII
 
 
