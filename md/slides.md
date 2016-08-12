@@ -242,7 +242,8 @@ Note: microservices
     * Dashboard: Horizon
     * Compute: Nova 
     * Networking: Neutron
-    * Object Storage: Glance
+    * Object Storage: Swift
+    * Image: Glance
     * Block Storage: Cinder
 
 
