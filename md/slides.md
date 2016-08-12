@@ -6,6 +6,18 @@ Gerard Braad
 <span class="lightblue">me</span><span class="white">@gbraad</span><span class="orange">.nl</span>
 
 
+## Thank you
+
+
+## 21vianet / Blue cloud`
+
+
+## Apology
+
+
+## English only
+
+
 ## Who am I
 
   * <span class="orange">F/OSS</span>
@@ -39,10 +51,67 @@ Gerard Braad
 ## What is OpenStack
 
   * Many definitions
-    * project
-    * foundation
-    * set of applications
-    * deployed environment
+
+
+## What is OpenStack
+
+  * Many definitions
+    * <span class="lightblue">project</span>
+ 
+
+## OpenStack Mission
+
+_ _
+
+
+
+## OpenStack Mission
+
+  * Produce the ubiquitous
+    _Open Source Cloud Computing_ platform
+
+
+## Open Source
+
+  *
+
+
+## Cloud Computing
+
+  * 
+
+
+## OpenStack Mission
+
+  * Produce the ubiquitous
+    _Open Source Cloud Computing_ platform
+  * easy to use, simple to implement
+  * works well at all scales
+
+
+## OpenStack Mission
+
+  * Produce the ubiquitous
+    _Open Source Cloud Computing_ platform
+  * easy to use, simple to implement
+  * works well at all scales
+  * interoperable
+  * meet the needs
+
+
+## Why would people need OpenStack
+
+  * Agility
+  * Continuous Delivery
+  * Scalability
+  * DevOps
+
+
+## Why would people need OpenStack
+
+  * Legal
+    * regional
+    * PII
 
 
 ## OpenStack Mission
@@ -56,6 +125,13 @@ Gerard Braad
     * users, operators
     * public, private clouds
 
+
+## What is OpenStack
+
+  * Many definitions
+    * project
+    * <span class="lightblue">foundation</span>
+ 
 
 ## OpenStack Foundation
 
@@ -77,6 +153,9 @@ Gerard Braad
     * core values
     * target 
 
+
+## Understand OpenStack as a community
+
   * Definition of 'open' / openness
     * source
     * community
@@ -93,17 +172,37 @@ Gerard Braad
 Bridge gap between community
 
 
-## Microservices
+## OpenStack is not just OpenStack
 
-...
+  * Ceph (storage)
+  * Puppet / Ansible
+  * ...
+
+
+## What is OpenStack
+
+  * Many definitions
+    * project
+    * foundation
+    * <span class="lightblue">set of applications</span>
+ 
+
+## OpenStack services
+
+  * Set of applications
 
 
 ## OpenStack services
 
-  * a set of applications
-  * unix philosophy
+  * 'Un*x' philosophy
     * do one thing
     * and do it well
+
+Note: microservices
+
+
+## OpenStack services
+
   * communication
 
 
@@ -148,9 +247,10 @@ Bridge gap between community
     * ...
 
 
-## Inter-process communication
+## Client communication
 
   * Rest API
+    * HTTP Verbs/methods
   * Resource oriented
 
 
@@ -161,6 +261,12 @@ Bridge gap between community
 Enables cloud administrators and users to manage various OpenStack resources and services.
 
 It enables Web-based interactions with the OpenStack Compute cloud controller through the OpenStack APIs.
+
+
+## Short demonstration
+
+  * Horizon
+  * Client
 
 
 ## Concept of node types
@@ -214,12 +320,41 @@ Handles networking within the OpenStack environment
   * [Swift](http://docs.openstack.org/developer/swift/) is a highly available, distributed, eventually consistent object/blob store
 
 
+## What is OpenStack
 
-## HTTP Verbs/methods
+  * Many definitions
+    * project
+    * foundation
+    * set of applications
+    * <span class="lightblue">deployed environment</span>
 
+
+## Deployed environment
+
+  * There is no single OpenStack deployment
+    * [Navigator](http://www.openstack.org/software/project-navigator)
+
+  * Examples
+    * Dreamhost  
+      [DreamCompute](https://iad2.dreamcompute.com)
+    * UnitedStack  
+      [public cloud](https://console.ustack.com)
+    * OVH
 
 
 ## OpenStack deployments
+
+  * Baskins and Robbibs
+  
+
+## Ceilometer
+
+
+
+
+## Heat
+
+  * Orchestration
 
 
 
@@ -251,10 +386,116 @@ Handles networking within the OpenStack environment
 
 
 
+## Heat
+
+```
+heat_template_version: 2016-04-08
+
+description: Heat template to deploy an instance
+parameters:
+  ssh_key_name:
+    type: string
+    label: Key Pair name
+    description : Name of the key pair to enable SSH access to the instance.
+  flavor_name:
+    type: string
+    label: Flavor Name
+    description: Instance type for the development environment
+    default: m1.small
+    constraints:
+      - allowed_values: [m1.small, m1.medium]
+        description: flavor_name must be one of m1.small or m1.medium
+  root_password:
+    label: root password
+    default: secrete
+    hidden: true
+    description: root password for the development environment
+    type: string
+    constraints:
+    - length: { min: 4, max: 25 }
+      description: Password MUST be between 1 - 25 characters
+  private_network:
+    type: string
+    label: Private network name or ID
+    description: Network to attach instance to
+    default: private
+```
+
+
+## Heat
+
+```
+resources:
+  server:
+    type: OS::Nova::Server
+    properties:
+      name: devenv
+      flavor: { get_param: flavor_name }
+      image: Fedora23
+      key_name: { get_param: ssh_key_name }
+      networks:
+        - network: { get_param: private_network }
+      user_data:
+        str_replace:
+          template: |
+            #!/usr/bin/env bash
+            # Root password
+            sudo echo root:%root_password% | chpasswd
+            # Installation script
+            [...]
+          params:
+            "%root_password%": { get_param: root_password }
+```
+
+
+## Heat
+
+```
+  security_group:
+    type: OS::Neutron::SecurityGroup
+    properties:
+      description: Add security group rules for the development environment
+      name: devenv
+      rules:
+        - remote_ip_prefix: 0.0.0.0/0
+          protocol: tcp
+          port_range_min: 22
+          port_range_max: 22
+
+outputs:
+  server_private_ip:
+    description: IP address of development environment in the private network
+    value: { get_attr: [ server, first_address ] }
+```
+
+
+## Ansible as a client
+
+```
+- hosts: localhost
+
+  tasks:
+  - name: Create instance
+    os_server:
+      state: present
+      cloud: "{{ cloud }}"
+      name: "devenv"
+      image: Fedora24
+      key_name: "{{ key }}"
+      network: public
+      flavor: 1
+      userdata: >-
+        #!/usr/bin/env bash
+        # Root password
+        sudo echo root:%root_password% | chpasswd
+        # Installation script
+        [...]
+```
+
+
 ## Resources
 
   * https://wiki.openstack.org/wiki/Open
-  * http://www.openstack.org/software/project-navigator
   * http://docs.openstack.org/liberty/install-guide-rdo/index.html
   * https://gitlab.com/gbraad/openstack-handsonlabs
 
@@ -271,5 +512,4 @@ Handles networking within the OpenStack environment
 
 
 ## Q & A
-
 
