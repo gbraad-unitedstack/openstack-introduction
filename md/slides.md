@@ -9,7 +9,7 @@ Gerard Braad
 ## Thank you
 
 
-## 21vianet / Blue cloud`
+## 21Vianet / Blue cloud
 
 
 ## Apology
@@ -55,8 +55,7 @@ Gerard Braad
 
 ## What is OpenStack
 
-  * Many definitions
-    * <span class="lightblue">project</span>
+  * <span class="lightblue">project</span>
  
 
 ## OpenStack Mission
@@ -128,9 +127,8 @@ _ _
 
 ## What is OpenStack
 
-  * Many definitions
-    * project
-    * <span class="lightblue">foundation</span>
+  * project
+  * <span class="lightblue">foundation</span>
  
 
 ## OpenStack Foundation
@@ -181,10 +179,9 @@ Bridge gap between community
 
 ## What is OpenStack
 
-  * Many definitions
-    * project
-    * foundation
-    * <span class="lightblue">set of applications</span>
+  * project
+  * foundation
+  * <span class="lightblue">set of applications</span>
  
 
 ## OpenStack services
@@ -322,11 +319,10 @@ Handles networking within the OpenStack environment
 
 ## What is OpenStack
 
-  * Many definitions
-    * project
-    * foundation
-    * set of applications
-    * <span class="lightblue">deployed environment</span>
+  * project
+  * foundation
+  * set of applications
+  * <span class="lightblue">deployed environment</span>
 
 
 ## Deployed environment
