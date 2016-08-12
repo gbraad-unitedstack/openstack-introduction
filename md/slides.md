@@ -36,12 +36,50 @@ Gerard Braad
   * Many definitions
     * project
     * foundation
+    * set of applications
     * deployed environment
 
 
-## Mission of the project
+## OpenStack Mission
 
-To produce a ubiquitous Open Source Cloud Computing platform that is easy to use, simple to implement, interoperable between deployments, works well at all scales, and meets the needs of users and operators of both public and private clouds.
+  * Produce the ubiquitous
+    _Open Source Cloud Computing_ platform
+  * easy to use, simple to implement
+  * works well at all scales
+  * interoperable
+  * meet the needs
+    * users, operators
+    * public, private clouds
+
+
+## OpenStack Foundation
+
+  * An independent body providing shared resources
+  * Helps to achieve the _OpenStack Mission_
+    * Protecting
+    * Empowering
+    * Promoting
+
+  * OpenStack software and the community around it
+    * users
+    * developers
+    * entire ecosystem
+
+
+## Understand OpenStack as a community
+
+  * foundation mission
+    * core values
+    * target audience
+
+
+## Customer as target audience
+
+  * enterprise need
+  * consultant listens
+  * task of the engineer
+
+Bridge gap between community
 
 
 ## Microservices
@@ -66,6 +104,11 @@ To produce a ubiquitous Open Source Cloud Computing platform that is easy to use
 ## KeyStone
 
   * [Keystone](http://docs.openstack.org/developer/keystone/) provides Identity, Token, Catalog and Policy services
+
+
+## Overview
+
+![img]()
 
 
 ## Nova
