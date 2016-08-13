@@ -999,7 +999,30 @@ outputs:
 Utilizes the [Shade](http://docs.openstack.org/infra/shade/) client library for interacting with OpenStack clouds
 
 
-## Ansible playbook
+## Ansible playbook: upload key
+
+```
+---
+- hosts: localhost
+
+  tasks:
+  - name: Upload public key to OpenStack cloud providers 
+    os_keypair:
+      cloud: "{{ item }}"
+      name: gbraad
+      public_key_file: ~/.ssh/id_rsa.pub
+    with_items:
+    - trystack
+    - dreamhost
+    - ustack
+```
+
+```
+$ ansible-playbook upload-publickey.yml
+```
+
+
+## Ansible playbook: create instance
 
 ```
 - hosts: localhost
@@ -1009,7 +1032,7 @@ Utilizes the [Shade](http://docs.openstack.org/infra/shade/) client library for 
     os_server:
       state: present
       cloud: "{{ cloud }}"
-      name: "devenv"
+      name: "test"
       image: Fedora24
       key_name: "{{ key }}"
       network: public
@@ -1020,6 +1043,10 @@ Utilizes the [Shade](http://docs.openstack.org/infra/shade/) client library for 
         sudo echo root:%root_password% | chpasswd
         # Installation script
         [...]
+```
+
+```
+$ ansible-playbook create-instance.yml --extra-vars "cloud=trystack key_name=mykey"
 ```
 
 
