@@ -1,6 +1,6 @@
-# An introduction to OpenStack
+# OpenStack
 
-### An introduction to OpenStack
+### an introduction
 Gerard Braad
 
 <span class="lightblue">me</span><span class="white">@gbraad</span><span class="orange">.nl</span>
@@ -49,7 +49,6 @@ Gerard Braad
 
 
 ## What is OpenStack
-
 
 
 ## What is OpenStack
@@ -536,7 +535,6 @@ $ openstack server list
 ... image ...
 
 
-
 ## Glance image upload
 
 ```
@@ -648,9 +646,27 @@ $ openstack server add volume [server-name] [volume-name]
     * Floating IPs
 
 
+## Neutron backends
+
+  * Dragonflow
+  * OpenContrail
+  * OpenDayLight
+  * OVN
+  * Astara
+
+
 ## Swift
 
   * [Swift](http://docs.openstack.org/developer/swift/) is a highly available, distributed, eventually consistent object/blob store
+
+
+## What is object storage
+
+  * 'flat' structure
+  * stored in containers (massive scalability)
+  * metadata
+  * durability
+  * access via API
 
 
 ## What is OpenStack
@@ -684,15 +700,12 @@ $ openstack server add volume [server-name] [volume-name]
 
 
 
-
 ## Heat
 
   * Orchestration
 
 
-
 ## Deployment tools
-
 
 
 ## Devstack
