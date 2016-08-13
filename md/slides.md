@@ -398,7 +398,7 @@ Handles networking within the OpenStack environment
   * [Nova](http://docs.openstack.org/developer/nova/) provides power massively scalable, on demand, self service access to compute resources
 
 
-## Overview
+## Nova overview
 
   * build on top of a messaging-based architecture
     * component interaction with AMQP
@@ -406,7 +406,7 @@ Handles networking within the OpenStack environment
   * pluggable
 
 
-## Diagram
+## Nova components
 
   * Nova API
   * Nova scheduler
@@ -448,17 +448,6 @@ Nodes -> Filters -> filtered list -> Weighting -> final sorted list
     provides a VNC proxy for browsers
 
 
-## Boot instance
-
-  * Instance name
-  * Flavor ID
-  * Image name
-
-  * Network ID
-  * Security group
-  * Keypair
-
-
 ## Nova and AMQP interaction
 
   * API service processes the REST requests
@@ -477,14 +466,93 @@ Nodes -> Filters -> filtered list -> Weighting -> final sorted list
   * LXC, Docker
 
 
-## Cinder
+## Boot instance
 
-  * [Cinder](http://docs.openstack.org/developer/cinder/) provides “block storage as a service”
+  * Instance name
+  * Flavor ID
+  * Image name
+
+  * Network ID
+  * Security group
+  * Keypair
+
+
+## Boot instance
+
+```
+$ openstack server create test --flavor 1 --image "CentOS7" --key-name "my-key"
+```
+
+```
+$ openstack server list
+```
 
 
 ## Glance
 
   * [Glance](http://docs.openstack.org/developer/glance/) provides a service where users can upload and discover data assets that are meant to be used with other services
+
+
+## Glance overview
+
+  * RESTful API
+    * querying image metadata
+    * retrieval of image
+  * storage backends
+    * filesystem
+    * object storage (Swift, S3)
+    * Ceph RBD (distributed storage)
+    * Cinder
+
+
+## Glance components
+
+  * Glance API  
+    accepts calls for image discovery, retrieval, and storage
+  * Glance registry
+    stores, processes, and retrieves metadatda about images (size, type, etc.)
+  * Glance database
+    stores image metadata. MySQL or SQlite
+  * Storage repository
+
+
+## Supported formats
+
+  * Disk formats
+    * raw (unstructured)
+    * qcow2 (qemu)
+    * iso
+    * vhd (Hyper-V), vmdk (VMWare), vdi (VirtualBox)
+    * aki, ari, ami (AWS images)
+
+  * Container formats
+    * bare
+    * ovf (Open Virtualization Format)
+    * aki, ari, ami
+
+
+## Glance architecture
+
+... image ...
+
+
+
+## Glance image upload
+
+```
+$ wget -q http://cloud.centos.org/centos/7/images/CentOS-7-x86_64-GenericCloud.qcow2 -O /tmp/centos7.qcow2
+$ openstack image create --disk-format qcow2 --file /tmp/centos7.qcow2 centos7
+```
+
+```
+$ qemu-img convert /tmp/centos7.qcow2 /tmp/centos7.raw
+$ openstack image create --disk-format raw --container-format bare --file /tmp/centos7.raw centos7
+```
+
+
+## Cinder
+
+  * [Cinder](http://docs.openstack.org/developer/cinder/) provides “block storage as a service”
 
 
 ## Neutron
@@ -521,7 +589,7 @@ Nodes -> Filters -> filtered list -> Weighting -> final sorted list
 
 ## OpenStack deployments
 
-  * Baskins and Robbibs
+  * Baskins and Robbins
   
 
 ## Ceilometer
@@ -688,6 +756,16 @@ outputs:
 ## High Availability
 
 
+
+
+## Vagrant
+
+Also comes with an OpenStack provider. Which allows you to easily deploy
+developer environments onto an OpenStack environments.
+
+```
+$ vagrant up
+```
 
 
 ## Resources
