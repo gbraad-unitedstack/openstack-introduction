@@ -136,6 +136,18 @@ _To produce a ubiquitous **Open Source Cloud Computing platform** that is **easy
   * DevOps
 
 
+## As an application developer,
+I want to deploy and run an application on the internet so that my customers all over the world can consume it.
+
+
+## As an operator,
+I want to deploy the application across multiple clouds so that my service survives issues in any one of them.
+
+
+## As a compliance officer,
+I want to deploy and run an application in a location of my choosing so that I can comply with regulatory demands.
+
+
 ## Why would people need OpenStack
 
   * Legal reasons
