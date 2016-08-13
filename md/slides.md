@@ -218,6 +218,7 @@ Bridge gap between community
 ## OpenStack services
 
   * Set of applications
+    * Python
 
 
 ## OpenStack services
@@ -397,10 +398,83 @@ Handles networking within the OpenStack environment
   * [Nova](http://docs.openstack.org/developer/nova/) provides power massively scalable, on demand, self service access to compute resources
 
 
+## Overview
 
-## Inter-process communication
+  * build on top of a messaging-based architecture
+    * component interaction with AMQP
+    * external services with REST
+  * pluggable
 
-  * Message Queue
+
+## Diagram
+
+  * Nova API
+  * Nova scheduler
+  * Nova conductor
+  * Nova compute
+  * Nova ConsoleAuth
+  * Nova novncproxy
+
+
+## Nova API
+
+Responsible for the API for users and services
+  
+Example: spawning an instance from Horizon or CLI
+
+
+## Nova scheduler
+
+Using `Filters` it will dispatch requests for new virtual machines to the correct node
+
+
+Nodes -> Filters -> filtered list -> Weighting -> final sorted list
+
+
+## Nova compute
+
+  * Runs on each to allow creation and termination of virtual machines.
+  * Interacts with the hypervisor to launch instances
+  * Instance state is maintained in the database.
+
+
+## Nova services
+
+  * Nova conductor  
+    provides database access for compute nodes (reducing security risks)
+  * Nova ConsoleAuth  
+    handles console authentication
+  * Nova novncproxy  
+    provides a VNC proxy for browsers
+
+
+## Boot instance
+
+  * Instance name
+  * Flavor ID
+  * Image name
+
+  * Network ID
+  * Security group
+  * Keypair
+
+
+## Nova and AMQP interaction
+
+  * API service processes the REST requests
+    * database interaction
+    * RPC messaging `oslo.messaging` library
+
+
+## Integration
+
+  * Hyper-V (Windows Server, Windows 8)  
+    Python application/service running on Hyper-V node
+    * doesn't require clustering services
+    * doesn't require shared storage
+  * VMWare ESX
+  * Xen
+  * LXC, Docker
 
 
 ## Cinder
@@ -437,11 +511,12 @@ Handles networking within the OpenStack environment
     * [Navigator](http://www.openstack.org/software/project-navigator)
 
   * Examples
-    * Dreamhost  
-      [DreamCompute](https://iad2.dreamcompute.com)
-    * UnitedStack  
-      [public cloud](https://console.ustack.com)
-    * OVH
+    * UnitedStack [UOS Cloud](https://console.ustack.com)
+    * Rackspace [Public Cloud](https://www.rackspace.com/cloud)
+    * Dreamhost [DreamCompute](https://iad2.dreamcompute.com)
+    * OVH [Public Cloud](https://www.ovh.com/us/cloud/)
+    * [EnterCloudSuite](http://www.entercloudsuite.com/en/)
+    * [CityCloud](https://www.citycloud.com/register/)
 
 
 ## OpenStack deployments
@@ -617,10 +692,12 @@ outputs:
 
 ## Resources
 
-  * https://wiki.openstack.org/wiki/Open
-  * http://docs.openstack.org/liberty/install-guide-rdo/index.html
   * https://gitlab.com/gbraad/openstack-handsonlabs
-
+  * https://github.com/gbraad/scratchpad/tree/master/technology/openstack
+  * https://wiki.openstack.org/wiki/Open
+  * http://docs.openstack.org/mitaka/install-guide-rdo/index.html
+  * http://docs.openstack.org/mitaka/config-reference/index.html
+  * https://access.redhat.com/documentation/en/red-hat-openstack-platform/
 
 
 ## Stay in touch
