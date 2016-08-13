@@ -1,6 +1,6 @@
-# An introduction to OpenStack
+# OpenStack
 
-### An introduction to OpenStack
+### an introduction
 Gerard Braad
 
 <span class="lightblue">me</span><span class="white">@gbraad</span><span class="orange">.nl</span>
@@ -9,18 +9,13 @@ Gerard Braad
 ## Thank you
 
 
-## 21Vianet / Blue cloud
-
-
 ## Apology
-
-
-## English only
 
 
 ## Who am I
 
-  * <span class="orange">F/OSS</span>
+  * <span class="orange">F</span>/OSS  
+    (Free / Open Source Software)
 
 
 ## Who am I
@@ -40,16 +35,20 @@ Gerard Braad
 
 ## Who am I
 
-  * ...
+  * Teacher / Trainer
 
 
-## OpenStack
+## Who am I
 
-![Diagram](img/openstack-software-diagram.png)
+  * F/OSS & IT Consultant
 
 
 ## What is OpenStack
 
+
+## OpenStack
+
+![](img/openstack-software-diagram.png)
 
 
 ## What is OpenStack
@@ -60,13 +59,13 @@ Gerard Braad
 ## Since 2010
 
 A joint project
+
   * Rackspace Hosting  
     (Cloud Files)
   * NASA  
     (Nebula)
 
-to bring 
-_cloud-computing services running on standard hardware_.
+to bring _cloud-computing services running on standard hardware_.
 
 
 ## "Austin"
@@ -75,15 +74,20 @@ First community release followed 4 months later.
 
   * Object Storage  
     (Swift)
-  * Compute
+  * Compute  
     (Nova)
 
 [Source](https://wiki.openstack.org/wiki/ReleaseNotes/Austin)
 
 
+## OpenStack
+
+  * Umbrella project
+
+
 ## OpenStack Mission
 
-_To produce a ubiquitous **Open Source Cloud Computing platform** that is **easy to use**, simple to implement, **interoperable between deployments**, works well at all scales, and **meets the needs of users and operators of both public and private clouds**_.
+_To produce a ubiquitous <span class="orange">**Open Source Cloud Computing platform**</span> that is <span class="lightblue">**easy to use**</span>, simple to implement, <span class="orange">**interoperable between deployments**</span>, works well at all scales, and <span class="lightblue">**meets the needs of users and operators of both public and private clouds**</span>_.
 
 
 ## OpenStack Mission
@@ -94,19 +98,41 @@ _To produce a ubiquitous **Open Source Cloud Computing platform** that is **easy
 ## OpenStack Mission
 
   * Produce a ubiquitous
-    _Open Source Cloud Computing_ platform
+    <span class="orange">_Open Source Cloud Computing_</span> platform
 
 
 ## Open Source
 
-  *
+  * Is an ideology / way of doing
+  * Promotes collaboration/sharing of ideas
+  * The licensing promotes the re-use of material
+
+[More info](http://gbraad.gitlab.io/open-source-culture/)
+
+
+## Open Source
+
+Not only about software
+
+  * Open Hardware
+  * Open CourseWare (MIT)
+  * Wikipedia (CC-licensed)
+
+
+## Prevents vendor 'lock-in'
+
+Customer is not dependent on a vendor for products and services
+
+  * network equipment
+  * proprietary formats
+  * camera lenses
 
 
 ## Cloud Computing
 
-... is a model for enabling convenien, **on-demand network access to a shared pool of configurable computing resources**.
+... is a model for enabling convenient, <span class="orange">**on-demand network access to a shared pool of configurable computing resources**</span>.
 
-(eg. networks, servers, storage, applications, and services) **that can be rapidly provisioned and released** with minimal management effort or service provider interaction.
+(eg. networks, servers, storage, applications, and services) <span class="lightblue">**that can be rapidly provisioned and released**</span> with minimal management effort or service provider interaction.
 
 [Source](http://www.nist.gov/itl/cloud/)
 
@@ -115,8 +141,8 @@ _To produce a ubiquitous **Open Source Cloud Computing platform** that is **easy
 
   * Produce the ubiquitous
     _Open Source Cloud Computing_ platform
-  * easy to use, simple to implement
-  * works well at all scales
+  * <span class="lightblue">easy to use, simple to implement</span>
+  * <span class="lightblue">works well at all scales</span>
 
 
 ## OpenStack Mission
@@ -125,8 +151,8 @@ _To produce a ubiquitous **Open Source Cloud Computing platform** that is **easy
     _Open Source Cloud Computing_ platform
   * easy to use, simple to implement
   * works well at all scales
-  * interoperable
-  * meet the needs
+  * <span class="lightblue">interoperable</span>
+  * <span class="lightblue">meet the needs</span>
 
 
 ## Why would people need OpenStack
@@ -135,6 +161,18 @@ _To produce a ubiquitous **Open Source Cloud Computing platform** that is **easy
   * Continuous Delivery
   * Scalability
   * DevOps
+
+
+## As an application developer,
+I want to deploy and run an application on the internet so that my customers all over the world can consume it.
+
+
+## As an operator,
+I want to deploy the application across multiple clouds so that my service survives issues in any one of them.
+
+
+## As a compliance officer,
+I want to deploy and run an application in a location of my choosing so that I can comply with regulatory demands.
 
 
 ## Why would people need OpenStack
@@ -160,7 +198,7 @@ _To produce a ubiquitous **Open Source Cloud Computing platform** that is **easy
 
   * project
   * <span class="lightblue">foundation</span>
- 
+
 
 ## OpenStack Foundation
 
@@ -201,10 +239,16 @@ _To produce a ubiquitous **Open Source Cloud Computing platform** that is **easy
 Bridge gap between community
 
 
+## Community engagement
+
+  * to keep up with the changes...
+
+
 ## OpenStack is not just OpenStack
 
   * Ceph (storage)
-  * Puppet / Ansible
+  * Puppet, Ansible
+  * OPNFV, Open vSwitch
   * ...
 
 
@@ -213,7 +257,7 @@ Bridge gap between community
   * project
   * foundation
   * <span class="lightblue">set of applications</span>
- 
+
 
 ## OpenStack services
 
@@ -259,7 +303,7 @@ Note: microservices
   * [Keystone](http://docs.openstack.org/developer/keystone/) provides Identity, Token, Catalog and Policy services
 
 
-## Overview
+## Keystone Overview
 
   * User management  
     Tracks users and their permissions
@@ -268,7 +312,12 @@ Note: microservices
     Provides a catalog of available services with their API endpoints
 
 
-## Overview
+## Keystone diagram
+
+![](img/services-keystone.png)
+
+
+## Keystone overview
 
   * API gateway
   * Verifies access tokens
@@ -284,6 +333,7 @@ Note: microservices
   * authenticate with Keystone
   * obtain a _TOKEN_
   * use _TOKEN_ for transactions with OpenStack services
+  * service verfies _TOKEN_ with Keystone
 
 
 ## Integration with LDAP
@@ -336,32 +386,22 @@ It enables Web-based interactions with the OpenStack Compute cloud controller th
 ## Install client
 
 ```
-pip install python-openstackclient
+(.venv) $ pip install python-openstackclient
 ```
 
 ```
-yum install -y python-openstackclient
+$ sudo yum install -y python-openstackclient
 ```
 
 ```
-apt-get install -y python-openstackclient
+$ sudo apt-get install -y python-openstackclient
 ```
 
-
-## Basic commands
-
-
 ```
-openstack [resource] [command] [options] 
+$ docker pull gbraad/openstack-client:alpine
 ```
 
-Note:
-
-  * either use `source ~/.stack/dream`
-  * or use `--os-cloud dream` as parameter.
-
-[Documentation](http://docs.openstack.org/developer/python-openstackclient/)
-[clouds.yaml](http://docs.openstack.org/developer/python-openstackclient/configuration.html)
+[Info](http://github.com/gbraad/scratchpad/tree/master/technology/openstack/client.md)
 
 
 ## Client communication
@@ -373,29 +413,29 @@ Note:
     * JSON / HTTP(S)
 
 
-## Concept of node types
+## Basic commands
 
-... before I continue...
+```
+$ openstack [resource] [command] [options] 
+```
 
+Note:
 
-## Controller node
+  * either use `source ~/.stack/dream`
+  * or use `--os-cloud dream` as parameter.
 
-Takes care of the administrational tasks of the OpenStack environment
-
-
-## Compute node
-
-Provides the computing resource for the OpenStack environment
-
-
-## Network node
-
-Handles networking within the OpenStack environment
+[Documentation](http://docs.openstack.org/developer/python-openstackclient/)
+[clouds.yaml](http://docs.openstack.org/developer/python-openstackclient/configuration.html)
 
 
 ## Nova
 
   * [Nova](http://docs.openstack.org/developer/nova/) provides power massively scalable, on demand, self service access to compute resources
+
+
+## Nova diagram
+
+![](img/services-nova.png)
 
 
 ## Nova overview
@@ -427,6 +467,7 @@ Example: spawning an instance from Horizon or CLI
 
 Using `Filters` it will dispatch requests for new virtual machines to the correct node
 
+![](img/services-nova-filtering.png)
 
 Nodes -> Filters -> filtered list -> Weighting -> final sorted list
 
@@ -493,6 +534,11 @@ $ openstack server list
   * [Glance](http://docs.openstack.org/developer/glance/) provides a service where users can upload and discover data assets that are meant to be used with other services
 
 
+## Glance diagram
+
+![](img/services-glance.png)
+
+
 ## Glance overview
 
   * RESTful API
@@ -531,12 +577,6 @@ $ openstack server list
     * aki, ari, ami
 
 
-## Glance architecture
-
-... image ...
-
-
-
 ## Glance image upload
 
 ```
@@ -565,6 +605,11 @@ $ openstack image create --disk-format raw --container-format bare --file /tmp/c
 ## Cinder overview
 
 Originally called `Nova volume`, but is an independent project since the Folsom release. It provides infrastructure for managing volumes.
+
+
+## Cinder diagram
+
+![](img/services-cinder.png)
 
 
 ## What is Cinder?
@@ -609,6 +654,11 @@ $ openstack server add volume [server-name] [volume-name]
 ## Neutron
 
   * [Neutron](http://docs.openstack.org/developer/neutron/) provides “network connectivity as a service” between interface devices (e.g., vNICs)
+
+
+## Neutron diagram
+
+![](img/services-neutron.png)
 
 
 ## Neutron overview
@@ -657,6 +707,14 @@ $ openstack server add volume [server-name] [volume-name]
   * Astara
 
 
+## Demonstration
+
+  * Security groups  
+    Access rules
+  * Floating IP
+  * Network topology
+
+
 ## Swift
 
   * [Swift](http://docs.openstack.org/developer/swift/) is a highly available, distributed, eventually consistent object/blob store
@@ -671,85 +729,57 @@ $ openstack server add volume [server-name] [volume-name]
   * access via API
 
 
-## What is OpenStack
+## What is object storage
 
-  * project
-  * foundation
-  * set of applications
-  * <span class="lightblue">deployed environment</span>
-
-
-## Deployed environment
-
-  * There is no single OpenStack deployment
-    * [Navigator](http://www.openstack.org/software/project-navigator)
-
-  * Examples
-    * UnitedStack [UOS Cloud](https://console.ustack.com)
-    * Rackspace [Public Cloud](https://www.rackspace.com/cloud)
-    * Dreamhost [DreamCompute](https://iad2.dreamcompute.com)
-    * OVH [Public Cloud](https://www.ovh.com/us/cloud/)
-    * [EnterCloudSuite](http://www.entercloudsuite.com/en/)
-    * [CityCloud](https://www.citycloud.com/register/)
+ * Good for:
+   * Media (images, music, video)
+   * Documents
+   * Backups
+ * Not suited for:
+   * Relational data
+   * Data requiring updates within objects
 
 
-## OpenStack deployments
+## Swift features
 
-  * Baskins and Robbins
-  
+  * Multi-tenancy
+  * Eventual consistency (CAP)
+  * Object versioning
+  * Standalone
+
+
+## Swift diagram
+
+![](img/services-swift.png)
+
+
+## Swift architecture
+
+  * Account service
+  * Container service
+  * Object service
+  * Consistency service
+
+
+## OpenStack services continued
+
+  * Astara, Barbican, Ceilometer, Cloudkitty, Designate, Freezer, Heat, Kuryr, Magnum, Manila, Mistral, Monasca, Murano, Oslo, Rally, Sahara, Searchlight, Senlin, Smaug, Solum, Tempest, Tacker, Trove, Vitrage, Watcher, Zaqar
+
 
 ## Ceilometer
 
-
+  * Telemetry service
+  * Billing, chargeback use-case
+  * Cloud operator
+    * Utilization
 
 
 ## Heat
 
-  * Orchestration
-
-
-
-## Deployment tools
-
-
-
-## Devstack
-
-A documented shell script to build a complete OpenStack development environment,
-using the latest version.
-
-[Website](http://devstack.org)
-
-  * Ubuntu
-  * Fedora
-  * Debian
-  * OpenSUSE
-
-Note: for use on servers or virtual machines... and only for development purpose
-
-
-## Puppet modules
-
-
-
-## Ansible
-
-
-
-## Fuel
-
-
-
-## TripleO
-
-
-
-## OSAD
-
-
-
-## Kolla
-
+  * Orchestration service
+  * Comaptible with AWS CloudFormation
+  * Uses a templating mechanism
+  * Controls complex groups of cloud resources
 
 
 ## Heat
@@ -835,14 +865,333 @@ outputs:
 ```
 
 
+## Ceilometer + Heat
+
+Autoscaling
+
+  * Orchestration triggered by events from telemetry data
+  * Neutron with LBaaS
+
+
+## Ironic
+
+Provisions bare-metal (physical hardware) as opposed to virtual machines
+
+  * Leverages
+    * PXE
+    * IPMI
+    * plugin ...
+  * Images can be provided by
+    * HTTP
+    * Cinder
+    * Glance
+
+
+## What is OpenStack
+
+  * project
+  * foundation
+  * set of applications
+  * <span class="lightblue">deployed environment</span>
+
+
+## Deployed environment
+
+  * There is no single OpenStack deployment
+    * [Navigator](http://www.openstack.org/software/project-navigator)
+
+  * Examples
+    * UnitedStack [UOS Cloud](https://console.ustack.com)
+    * City Network [CityCloud](https://www.citycloud.com/)
+    * Dreamhost [DreamCompute](https://iad2.dreamcompute.com)
+    * OVH [Public Cloud](https://www.ovh.com/us/cloud/)
+    * [EnterCloudSuite](http://www.entercloudsuite.com/en/)
+    * Rackspace [Public Cloud](https://www.rackspace.com/cloud)
+
+
+## OpenStack deployments
+
+The minimum that fits your use-case
+
+[Sample configurations](https://www.openstack.org/software/sample-configs/) (case studies)
+
+
+## Concept of node types
+
+... before I continue...
+
+
+## Node types
+
+![](img/openstack-multinode.png)
+
+
+## Controller node
+
+Takes care of the administrational tasks of the OpenStack environment
+
+
+## Compute node
+
+Provides the computing resource for the OpenStack environment
+
+
+## Network node
+
+Handles networking within the OpenStack environment
+
+
+## Puppet modules
+
+Utilizes Puppet to configure and deploy OpenStack components
+
+[Reference](http://docs.openstack.org/developer/puppet-openstack-guide/)
+[Integration](https://github.com/openstack/puppet-openstack-integration)
+
+
+## Puppet example
+
+`manifests/controller.pp`
+```
+class ionic_cloud::controller {
+  include ionic_cloud::server
+  include ionic_cloud::controller::rabbitmq
+  include ionic_cloud::controller::mysql
+  include ionic_cloud::controller::keystone
+  include ionic_cloud::controller::glance
+  include ionic_cloud::controller::neutron
+  include ionic_cloud::controller::nova
+}
+```
+
+
+## Puppet example
+
+`controller/keystone.pp`
+```
+class ionic_cloud::controller::keystone (
+  $allowed_hosts          = "10.0.0.0/24",
+  $bind_host              = '0.0.0.0',
+  $controller             = 'controller.ionic-cloud.gbraad.nl',
+  $password               = 'keystone',
+  $user                   = 'keystone',
+  $token_provider         = 'fernet',
+  $enable_fernet_setup    = true,
+) {
+
+  include ::keystone::client
+
+  class { '::keystone::db::mysql':
+    allowed_hosts => [$controller, $allowed_hosts],
+    password      => $password,
+    user          => $user
+  }
+
+  [...]
+```
+
+
+## Puppet example
+
+```
+  [...]
+
+  class { '::keystone':
+    admin_bind_host        => $bind_host,
+    admin_token            => $password,
+    database_connection    => "mysql+pymysql://${user}:${password}@${controller}/keystone",
+    enabled                => true,
+    public_bind_host       => $bind_host,
+    service_name           => 'httpd',
+    token_provider         => $token_provider,
+    enable_fernet_setup    => $enable_fernet_setup
+  }
+  
+  [...]
+```
+
+
+## Deployment tools
+
+Almost every vendor provides their own deployment tool
+
+
+## Deployment approach
+
+  * Source
+    * Bleeding edge
+    * Latest features and fixes are available
+  * Packages  
+    * At the mercy of the packagers
+    * Distribution specific testing
+  * Image-based  
+    * Guaranteed that all nodes run the same deployment
+
+
+## Devstack
+
+A documented shell script to build a complete OpenStack development environment,
+using the latest version.
+
+[Website](http://devstack.org)
+
+  * Ubuntu
+  * Fedora
+  * Debian
+  * OpenSUSE
+
+Note: for use on servers or virtual machines... and only for development purpose
+
+
+## PackStack
+
+Can do multi-node deployments, but is considered for small-scale, PoC deployments.
+
+```
+$ yum install -y centos-release-openstack-[releasename]
+$ yum install -y openstack-packstack
+$ packstack --allinone
+```
+
+
+## OpenStack Ansible
+
+Maintained by Rackspace
+
+[Source](https://github.com/openstack/openstack-ansible)
+
+
+## Fuel
+
+Maintained by [Mirantis](http://mirantis.com/)
+
+Targets
+
+  * Ubuntu
+  * CentOS / RHEL
+
+Recently Mirantis announced a partnership with SUSE
+
+[Reference](https://wiki.openstack.org/wiki/Fuel)
+[Demo](https://demo.fuel-infra.org:8000/)
+
+
+## TripleO
+
+'Openstack-on-Openstack'
+
+Utilizes many of the OpenStack components (Undercloud) to standup a workload OpenStack cloud (Overcloud). Part of RDO, the packaging of OpenStack for CentOS/RHEL.
+
+The undercloud deploys workload nodes using an image-based deployment.
+
+[Reference](http://tripleo.org/)
+
+
+## TripleO install customization
+
+```
+undercloud$ cat << EOF > ~/templates/firstboot-environment.yaml
+resource_registry:
+  OS::TripleO::NodeUserData: /home/stack/my_templates/firstboot-config.yaml
+EOF
+```
+
+
+## TripleO install customization
+
+```
+undercloud$ cat << EOF > ~/templates/firstboot-config.yaml
+heat_template_version: 2014-10-16
+
+resources:
+  userdata:
+    type: OS::Heat::MultipartMime
+    properties:
+      parts:
+      - config: {get_resource: repo_config}
+
+  repo_config:
+    type: OS::Heat::SoftwareConfig
+    properties:
+      config: |
+        #!/bin/bash
+        yum install -y [packages to want to be installed]
+        # and any other commands you want to be performed
+
+outputs:
+  OS::stack_id:
+    value: {get_resource: userdata}
+EOF
+```
+
+
+## Install customization
+
+```
+undercloud$ openstack overcloud deploy --templates \
+   --control-flavor control --compute-flavor compute \
+   --control-scale 1 --compute-scale 1 \
+   --neutron-tunnel-types vxlan --neutron-network-type vxlan \
+   -e ~/templates/firstboot-environment.yaml
+```
+
+
+## TripleO node types
+
+  * Storage nodes
+    * Block Storage
+    * Object Storage
+    * Ceph Storage
+
+  * Customization possible
+    * Storage on compute
+      [1](https://github.com/gbraad/openstack-tripleo-heat-templates/commit/57f8cb8412bb471aae2a7f2922fac4fddb9665a5)
+      [2](https://github.com/gbraad/redhat-openstack-ansible-role-tripleo-image-build/commit/83e3a9feed2c752e398d0513433362b8d93a354c)
+    * Composable services [3](https://hardysteven.blogspot.co.il/2016/08/tripleo-composable-services-101.html)
+
+
+## Kolla
+
+Containerized OpenStack project, targets Ubuntu and CentOS to run in Docker containers.
+
+  * packages
+  * source deployment
+
+Installer generates containers (comparable to images).
+
+
 ## Ansible as a client
 
 Utilizes the [Shade](http://docs.openstack.org/infra/shade/) client library for interacting with OpenStack clouds
 
 
-## Ansible playbook
+## Ansible playbook: upload key
 
 ```
+---
+- hosts: localhost
+
+  tasks:
+  - name: Upload public key to OpenStack cloud providers 
+    os_keypair:
+      cloud: "{{ item }}"
+      name: gbraad
+      public_key_file: ~/.ssh/id_rsa.pub
+    with_items:
+    - trystack
+    - dreamhost
+    - ustack
+```
+
+```
+$ ansible-playbook upload-publickey.yml
+```
+
+
+## Ansible playbook: create instance
+
+```
+---
 - hosts: localhost
 
   tasks:
@@ -850,7 +1199,7 @@ Utilizes the [Shade](http://docs.openstack.org/infra/shade/) client library for 
     os_server:
       state: present
       cloud: "{{ cloud }}"
-      name: "devenv"
+      name: "test"
       image: Fedora24
       key_name: "{{ key }}"
       network: public
@@ -863,10 +1212,49 @@ Utilizes the [Shade](http://docs.openstack.org/infra/shade/) client library for 
         [...]
 ```
 
+```
+$ ansible-playbook create-instance.yml --extra-vars "cloud=trystack key_name=mykey"
+```
+
+
+## Disaster recovery and backup
+
+  * Freezer
+  * Smaug
+
+
+## Ceph
+
+Distributed storage solution
+
+![](img/ceph-architecture.png)
+
 
 ## High Availability
 
+  * MySQL (Galera)
+  * Message Queue
+  * Pacemaker
+  * Keepalived
+  * haproxy
+  * ...
 
+[Reference](https://github.com/beekhof/osp-ha-deploy)
+
+
+## Messaging
+
+Generally in OpenStack two modes are used for messaging
+  
+  * `rpc.cast` - do not wait for result
+  * `rpc.call` - wait for result (when there is a return value)
+
+
+## Messaging notes
+
+  * Uses multiple queues within a single rabbitMQ instance
+  * Traffic is usually not intensive
+  * No broadcast messages
 
 
 ## Vagrant
@@ -877,6 +1265,16 @@ developer environments onto an OpenStack environments.
 ```
 $ vagrant up
 ```
+
+[Example](https://github.com/ceph/ceph-ansible/blob/master/Vagrantfile)
+
+
+## Conclusion
+
+  * OpenStack provides abstractions to build a cloud infrastructure
+  * It is only a part of the full deployment
+    * Storage
+    * Cloud Native
 
 
 ## Resources
@@ -889,6 +1287,8 @@ $ vagrant up
   * http://docs.openstack.org/mitaka/install-guide-rdo/index.html
   * http://docs.openstack.org/mitaka/config-reference/index.html
   * https://access.redhat.com/documentation/en/red-hat-openstack-platform/
+  * http://wiki.openstack.org/
+  * http://docs.openstack.org/ops/
 
 
 ## Stay in touch
