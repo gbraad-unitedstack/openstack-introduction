@@ -124,7 +124,7 @@ Customer is not dependent on a vendor for products and services
 
 ## Cloud Computing
 
-... is a model for enabling convenien, **on-demand network access to a shared pool of configurable computing resources**.
+... is a model for enabling convenient, **on-demand network access to a shared pool of configurable computing resources**.
 
 (eg. networks, servers, storage, applications, and services) **that can be rapidly provisioned and released** with minimal management effort or service provider interaction.
 
