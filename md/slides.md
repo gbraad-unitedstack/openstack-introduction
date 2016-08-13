@@ -104,7 +104,11 @@ _To produce a ubiquitous **Open Source Cloud Computing platform** that is **easy
 
 ## Cloud Computing
 
-  * 
+... is a model for enabling convenien, **on-demand network access to a shared pool of configurable computing resources**.
+
+(eg. networks, servers, storage, applications, and services) **that can be rapidly provisioned and released** with minimal management effort or service provider interaction.
+
+[Source](http://www.nist.gov/itl/cloud/)
 
 
 ## OpenStack Mission
@@ -246,6 +250,8 @@ Note: microservices
     * Image: Glance
     * Block Storage: Cinder
 
+  * and many, many more ...
+
 
 ## Keystone
 
@@ -272,11 +278,21 @@ Note: microservices
     * ...
 
 
-## Client communication
+## Usual flow
 
-  * Rest API
-    * HTTP Verbs/methods
-  * Resource oriented
+  * authenticate with Keystone
+  * obtain a _TOKEN_
+  * use _TOKEN_ for transactions with OpenStack services
+
+
+## Integration with LDAP
+
+  * MySQL
+    * Service catalog
+  * LDAP
+    * Accounts
+    * Roles
+    * Tenants
 
 
 ## Horizon
@@ -288,10 +304,72 @@ Enables cloud administrators and users to manage various OpenStack resources and
 It enables Web-based interactions with the OpenStack Compute cloud controller through the OpenStack APIs.
 
 
+## Overview
+
+  * Django-based
+    * AngularJS
+    * Bootstrap
+    * jQuery
+    * D3.js
+    * ...
+  * Extensible
+    * Billing
+    * Monitoring
+
+
+## Customization
+
+  * Change site title, logo and brand links
+  * Modify dashboard and panel
+  * Change button styles
+  * Custom stylesheets
+  * Custom JavaScript
+
+
 ## Short demonstration
 
   * Horizon
   * Client
+
+
+## Install client
+
+```
+pip install python-openstackclient
+```
+
+```
+yum install -y python-openstackclient
+```
+
+```
+apt-get install -y python-openstackclient
+```
+
+
+## Basic commands
+
+
+```
+openstack [resource] [command] [options] 
+```
+
+Note:
+
+  * either use `source ~/.stack/dream`
+  * or use `--os-cloud dream` as parameter.
+
+[Documentation](http://docs.openstack.org/developer/python-openstackclient/)
+[clouds.yaml](http://docs.openstack.org/developer/python-openstackclient/configuration.html)
+
+
+## Client communication
+
+  * RESTful API
+    * HTTP Verbs/methods
+    * Resource oriented
+    * version-ed (microversion)
+    * JSON / HTTP(S)
 
 
 ## Concept of node types
@@ -384,6 +462,21 @@ Handles networking within the OpenStack environment
 
 ## Deployment tools
 
+
+
+## Devstack
+
+A documented shell script to build a complete OpenStack development environment,
+using the latest version.
+
+[Website](http://devstack.org)
+
+  * Ubuntu
+  * Fedora
+  * Debian
+  * OpenSUSE
+
+Note: for use on servers or virtual machines... and only for development purpose
 
 
 ## Puppet modules
@@ -515,6 +608,11 @@ outputs:
         # Installation script
         [...]
 ```
+
+
+## High Availability
+
+
 
 
 ## Resources
