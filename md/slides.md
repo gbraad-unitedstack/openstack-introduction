@@ -655,6 +655,14 @@ $ openstack server add volume [server-name] [volume-name]
   * Astara
 
 
+## Demonstration
+
+  * Security groups  
+    Access rules
+  * Floating IP
+  * Network topology
+
+
 ## Swift
 
   * [Swift](http://docs.openstack.org/developer/swift/) is a highly available, distributed, eventually consistent object/blob store
@@ -667,6 +675,48 @@ $ openstack server add volume [server-name] [volume-name]
   * metadata
   * durability
   * access via API
+
+
+## What is object storage
+
+ * Good for:
+   * Media (images, music, video)
+   * Documents
+   * Backups
+ * Not suited for:
+   * Relational data
+   * Data requiring updates within objects
+
+
+## Swift features
+
+  * Multi-tenancy
+  * Eventual consistency (CAP)
+  * Object versioning
+  * Standalone
+
+
+## Swift architecture
+
+  * Account service
+  * Container service
+  * Object service
+  * Consistency service
+
+
+## Messaging
+
+Generally in OpenStack two modes are used for messaging
+  
+  * rpc.cast - do not wait for result
+  * rpc.call - wait for result (when there is a return value)
+
+
+## Messaging notes
+
+  * Uses multiple queues within a single rabbitMQ instance
+  * Traffic is usually not intensive
+  * No broadcast messages
 
 
 ## What is OpenStack
@@ -684,11 +734,11 @@ $ openstack server add volume [server-name] [volume-name]
 
   * Examples
     * UnitedStack [UOS Cloud](https://console.ustack.com)
-    * Rackspace [Public Cloud](https://www.rackspace.com/cloud)
+    * City Network [CityCloud](https://www.citycloud.com/)
     * Dreamhost [DreamCompute](https://iad2.dreamcompute.com)
     * OVH [Public Cloud](https://www.ovh.com/us/cloud/)
     * [EnterCloudSuite](http://www.entercloudsuite.com/en/)
-    * [CityCloud](https://www.citycloud.com/register/)
+    * Rackspace [Public Cloud](https://www.rackspace.com/cloud)
 
 
 ## OpenStack deployments
@@ -698,11 +748,22 @@ $ openstack server add volume [server-name] [volume-name]
 
 ## Ceilometer
 
+Telemetry
 
 
-## Heat
+## Heat (Orchestration)
 
-  * Orchestration
+Orchestration
+
+
+## Ironic
+
+Bare-metal
+
+
+## Trove
+
+Database as a Service
 
 
 ## Deployment tools
