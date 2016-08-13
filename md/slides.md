@@ -59,10 +59,9 @@ Gerard Braad
 ## Since 2010
 
 A joint project
-  * Rackspace Hosting  
-    (Cloud Files)
-  * NASA  
-    (Nebula)
+
+  * Rackspace Hosting (Cloud Files)
+  * NASA (Nebula)
 
 to bring 
 _cloud-computing services running on standard hardware_.
@@ -98,7 +97,29 @@ _To produce a ubiquitous **Open Source Cloud Computing platform** that is **easy
 
 ## Open Source
 
-  *
+Is an ideology / way of doing
+
+Promotes collaboration/sharing of ideas
+
+The licensing promotes the re-use of material
+
+
+## Open Source
+
+Not only about software
+
+  * Open Hardware
+  * Open CourseWare (MIT)
+  * Wikipedia (CC-licensed)
+
+
+## Prevents vendor 'lock-in'
+
+Customer is not dependent on a vendor for products and services
+
+  * network equipment
+  * proprietary formats
+  * camera lenses
 
 
 ## Cloud Computing
