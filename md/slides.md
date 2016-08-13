@@ -704,19 +704,42 @@ $ openstack server add volume [server-name] [volume-name]
   * Consistency service
 
 
-## Messaging
+## Ceilometer
 
-Generally in OpenStack two modes are used for messaging
-  
-  * rpc.cast - do not wait for result
-  * rpc.call - wait for result (when there is a return value)
+  * Telemetry service
+  * Billing, chargeback use-case
+  * Cloud operator
+    * Utilization
 
 
-## Messaging notes
+## Heat
 
-  * Uses multiple queues within a single rabbitMQ instance
-  * Traffic is usually not intensive
-  * No broadcast messages
+  * Orchestration service
+  * Comaptible with AWS CloudFormation
+  * Uses a templating mechanism
+  * Controls complex groups of cloud resources
+
+
+## Ceilometer + Heat
+
+Autoscaling
+
+  * Orchestration triggered by events from telemetry data
+  * Neutron with LBaaS
+
+
+## Ironic
+
+Provisions bare-metal (physical hardware) as opposed to virtual machines
+
+  * Leverages
+    * PXE
+    * IPMI
+    * plugin ...
+  * Images can be provided by
+    * HTTP
+    * Cinder
+    * Glance
 
 
 ## What is OpenStack
@@ -743,30 +766,33 @@ Generally in OpenStack two modes are used for messaging
 
 ## OpenStack deployments
 
-  * Baskins and Robbins
-  
+The minimum that fits your use-case
 
-## Ceilometer
-
-Telemetry
+[Sample configurations](https://www.openstack.org/software/sample-configs/) (case studies)
 
 
-## Heat (Orchestration)
+## Puppet modules
 
-Orchestration
+Utilizes Puppet to configure and deploy OpenStack components
 
-
-## Ironic
-
-Bare-metal
-
-
-## Trove
-
-Database as a Service
+[Reference](http://docs.openstack.org/developer/puppet-openstack-guide/)
 
 
 ## Deployment tools
+
+Almost every vendor provides their own deployment tool
+
+
+## Deployment approach
+
+  * Source
+    * Bleeding edge
+    * Latest features and fixes are available
+  * Packages  
+    * At the mercy of the packagers
+    * Distribution specific testing
+  * Image-based  
+    * Guaranteed that all nodes run the same deployment
 
 
 ## Devstack
@@ -784,28 +810,105 @@ using the latest version.
 Note: for use on servers or virtual machines... and only for development purpose
 
 
-## Puppet modules
+## PackStack
+
+Can do multi-node deployments, but is considered for small-scale, PoC deployments.
+
+```
+$ yum install -y centos-release-openstack-[releasename]
+$ yum install -y openstack-packstack
+$ packstack --allinone
+```
 
 
+## OpenStack Ansible
 
-## Ansible
+Maintained by Rackspace
 
+[Source](https://github.com/openstack/openstack-ansible)
 
 
 ## Fuel
 
+Maintained by Mirantis
+
+  Targets
+  * Ubuntu
+  * CentOS / RHEL
+
+Recently Mirantis announced a partnership with SUSE
+
+[Reference](https://wiki.openstack.org/wiki/Fuel)
+[Demo](https://demo.fuel-infra.org:8000/)
 
 
 ## TripleO
 
+'Openstack-on-Openstack'
+
+Utilizes many of the OpenStack components (Undercloud) to standup a workload OpenStack cloud (Overcloud). Part of RDO, the packaging of OpenStack for CentOS/RHEL.
+
+The undercloud deploys workload nodes using an image-based deployment.
+
+[Reference](http://tripleo.org/)
 
 
-## OSAD
+## Install customization
 
+```
+undercloud$ cat << EOF > ~/templates/firstboot-environment.yaml
+resource_registry:
+  OS::TripleO::NodeUserData: /home/stack/my_templates/firstboot-config.yaml
+EOF
+```
+
+## Install customization
+
+```
+undercloud$ cat << EOF > ~/templates/firstboot-config.yaml
+heat_template_version: 2014-10-16
+
+resources:
+  userdata:
+    type: OS::Heat::MultipartMime
+    properties:
+      parts:
+      - config: {get_resource: repo_config}
+
+  repo_config:
+    type: OS::Heat::SoftwareConfig
+    properties:
+      config: |
+        #!/bin/bash
+        yum install -y [packages to want to be installed]
+        # and any other commands you want to be performed
+
+outputs:
+  OS::stack_id:
+    value: {get_resource: userdata}
+EOF
+```
+
+
+## Install customization
+
+```
+undercloud$ openstack overcloud deploy --templates \
+   --control-flavor control --compute-flavor compute \
+   --control-scale 1 --compute-scale 1 \
+   --neutron-tunnel-types vxlan --neutron-network-type vxlan \
+   -e ~/templates/firstboot-environment.yaml
+```
 
 
 ## Kolla
 
+Containerized OpenStack project, targets Ubuntu and CentOS to run in Docker containers.
+
+  * packages
+  * source deployment
+
+Installer generates containers (comparable to images).
 
 
 ## Heat
@@ -922,7 +1025,29 @@ Utilizes the [Shade](http://docs.openstack.org/infra/shade/) client library for 
 
 ## High Availability
 
+  * MySQL (Galera)
+  * Message Queue
+  * Pacemaker
+  * Keepalived
+  * haproxy
+  * ...
 
+[Reference](https://github.com/beekhof/osp-ha-deploy)
+
+
+## Messaging
+
+Generally in OpenStack two modes are used for messaging
+  
+  * rpc.cast - do not wait for result
+  * rpc.call - wait for result (when there is a return value)
+
+
+## Messaging notes
+
+  * Uses multiple queues within a single rabbitMQ instance
+  * Traffic is usually not intensive
+  * No broadcast messages
 
 
 ## Vagrant
