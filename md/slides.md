@@ -550,14 +550,102 @@ $ openstack image create --disk-format raw --container-format bare --file /tmp/c
 ```
 
 
+## Glance assets
+
+  * Images for Nova
+  * Templates for Heat
+  * assets for use with other services
+
+
 ## Cinder
 
   * [Cinder](http://docs.openstack.org/developer/cinder/) provides “block storage as a service”
 
 
+## Cinder overview
+
+Originally called `Nova volume`, but is an independent project since the Folsom release. It provides infrastructure for managing volumes.
+
+
+## What is Cinder?
+
+It virtualizes pools of block storage devices and provides users a self-service API to request and consume resources. No knowledge is required of where storage is actually deployed or on what type of device.
+
+
+## Supported backends
+
+  * Reference implementation
+    * LVM, in a group named `cinder-volumes`
+  * Storage appliances  
+    EMC, Hitachi, IBM Storage, etc
+  * Ceph, GlusterFS, Nexenta
+
+
+## Volumes, snapshots and backups
+
+  * Volumes  
+    allocated block storage attached as secondary storage, or as root store to boot instances
+  * Snapshots  
+    read-only point in time of a volume
+  * Backups  
+    archived copy of a volume, stored in Object Storage
+
+
+## Cinder volume creation
+
+```
+$ openstack volume create [volume-name] --size [size]
+```
+
+```
+$ openstack volume create [volume-name] --image [image] --size [size]
+```
+
+```
+$ openstack server add volume [server-name] [volume-name]
+```
+
+
 ## Neutron
 
   * [Neutron](http://docs.openstack.org/developer/neutron/) provides “network connectivity as a service” between interface devices (e.g., vNICs)
+
+
+## Neutron overview
+
+  * Technology agnostic
+  * Extensible
+  * Advanced services
+    * LBaaS (Load-balancer)
+    * VPNaaS (VPN)
+    * FWaaS (Firewall)
+  * Standalone service
+
+
+## Neutron components
+
+  * Neutron Server
+  * Neutron Plugin
+  * DHCP Agent
+  * L3 agent
+  * Advanced services
+  * Neutron Database
+  * ML2 (Modular layer2) plugin
+
+
+## Neutron network setup
+
+  * provider network setup
+    * map into existing network (VLAN)
+    * small number of tenants
+    * routing with exisitng infrastructure
+
+
+## Neutron network setup
+
+  * Overlays (and L2 gateways)
+    * large number of tenants
+    * Floating IPs
 
 
 ## Swift
@@ -731,6 +819,11 @@ outputs:
 
 ## Ansible as a client
 
+Utilizes the [Shade](http://docs.openstack.org/infra/shade/) client library for interacting with OpenStack clouds
+
+
+## Ansible playbook
+
 ```
 - hosts: localhost
 
@@ -771,6 +864,8 @@ $ vagrant up
 ## Resources
 
   * https://gitlab.com/gbraad/openstack-handsonlabs
+    * Multi-tier setup
+    * Heat introduction
   * https://github.com/gbraad/scratchpad/tree/master/technology/openstack
   * https://wiki.openstack.org/wiki/Open
   * http://docs.openstack.org/mitaka/install-guide-rdo/index.html
