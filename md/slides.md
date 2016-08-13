@@ -9,9 +9,6 @@ Gerard Braad
 ## Thank you
 
 
-## 21Vianet / Blue cloud
-
-
 ## Apology
 
 
@@ -809,6 +806,7 @@ The minimum that fits your use-case
 Utilizes Puppet to configure and deploy OpenStack components
 
 [Reference](http://docs.openstack.org/developer/puppet-openstack-guide/)
+[Integration](https://github.com/openstack/puppet-openstack-integration)
 
 
 ## Puppet example
