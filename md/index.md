@@ -7,3 +7,4 @@ Gerard Braad
 
 
   * [Slides](./slides.html)
+  * [Commands](./commands.html)
