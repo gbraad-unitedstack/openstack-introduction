@@ -43,12 +43,13 @@ Gerard Braad
   * ...
 
 
+## What is OpenStack
+
+
+
 ## OpenStack
 
 ![Diagram](img/openstack-software-diagram.png)
-
-
-## What is OpenStack
 
 
 ## What is OpenStack
@@ -291,7 +292,7 @@ Note: microservices
   * [Keystone](http://docs.openstack.org/developer/keystone/) provides Identity, Token, Catalog and Policy services
 
 
-## Overview
+## Keystone Overview
 
   * User management  
     Tracks users and their permissions
@@ -300,7 +301,12 @@ Note: microservices
     Provides a catalog of available services with their API endpoints
 
 
-## Overview
+## Keystone diagram
+
+![](img/services-keystone.png)
+
+
+## Keystone overview
 
   * API gateway
   * Verifies access tokens
@@ -316,6 +322,7 @@ Note: microservices
   * authenticate with Keystone
   * obtain a _TOKEN_
   * use _TOKEN_ for transactions with OpenStack services
+  * service verfies _TOKEN_ with Keystone
 
 
 ## Integration with LDAP
@@ -410,6 +417,11 @@ Note:
 ... before I continue...
 
 
+## Node types
+
+![](img/openstack-multinode.png)
+
+
 ## Controller node
 
 Takes care of the administrational tasks of the OpenStack environment
@@ -428,6 +440,11 @@ Handles networking within the OpenStack environment
 ## Nova
 
   * [Nova](http://docs.openstack.org/developer/nova/) provides power massively scalable, on demand, self service access to compute resources
+
+
+## Nova diagram
+
+![](img/services-nova.png)
 
 
 ## Nova overview
@@ -459,6 +476,7 @@ Example: spawning an instance from Horizon or CLI
 
 Using `Filters` it will dispatch requests for new virtual machines to the correct node
 
+![](img/services-nova-filtering.png)
 
 Nodes -> Filters -> filtered list -> Weighting -> final sorted list
 
@@ -525,6 +543,11 @@ $ openstack server list
   * [Glance](http://docs.openstack.org/developer/glance/) provides a service where users can upload and discover data assets that are meant to be used with other services
 
 
+## Glance diagram
+
+![](img/services-glance.png)
+
+
 ## Glance overview
 
   * RESTful API
@@ -563,11 +586,6 @@ $ openstack server list
     * aki, ari, ami
 
 
-## Glance architecture
-
-... image ...
-
-
 ## Glance image upload
 
 ```
@@ -596,6 +614,11 @@ $ openstack image create --disk-format raw --container-format bare --file /tmp/c
 ## Cinder overview
 
 Originally called `Nova volume`, but is an independent project since the Folsom release. It provides infrastructure for managing volumes.
+
+
+## Cinder diagram
+
+![](img/services-cinder.png)
 
 
 ## What is Cinder?
@@ -640,6 +663,11 @@ $ openstack server add volume [server-name] [volume-name]
 ## Neutron
 
   * [Neutron](http://docs.openstack.org/developer/neutron/) provides “network connectivity as a service” between interface devices (e.g., vNICs)
+
+
+## Neutron diagram
+
+![](img/services-neutron.png)
 
 
 ## Neutron overview
@@ -727,6 +755,11 @@ $ openstack server add volume [server-name] [volume-name]
   * Eventual consistency (CAP)
   * Object versioning
   * Standalone
+
+
+## Swift diagram
+
+![](img/services-swift.png)
 
 
 ## Swift architecture
@@ -863,7 +896,7 @@ Maintained by Rackspace
 
 ## Fuel
 
-Maintained by Mirantis
+Maintained by [Mirantis](http://mirantis.com/)
 
   Targets
   * Ubuntu
@@ -1099,8 +1132,8 @@ $ ansible-playbook create-instance.yml --extra-vars "cloud=trystack key_name=myk
 
 Generally in OpenStack two modes are used for messaging
   
-  * rpc.cast - do not wait for result
-  * rpc.call - wait for result (when there is a return value)
+  * `rpc.cast` - do not wait for result
+  * `rpc.call` - wait for result (when there is a return value)
 
 
 ## Messaging notes
@@ -1118,6 +1151,14 @@ developer environments onto an OpenStack environments.
 ```
 $ vagrant up
 ```
+
+
+## Conclusion
+
+  * OpenStack provides abstractions to build a cloud infrastructure
+  * It is only a part of the full deployment
+    * Storage
+    * Cloud Native
 
 
 ## Resources
