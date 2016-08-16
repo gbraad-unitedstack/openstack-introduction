@@ -9,9 +9,6 @@ Gerard Braad
 ## Thank you
 
 
-## 21Vianet / Blue cloud
-
-
 ## Apology
 
 
@@ -842,6 +839,69 @@ The minimum that fits your use-case
 Utilizes Puppet to configure and deploy OpenStack components
 
 [Reference](http://docs.openstack.org/developer/puppet-openstack-guide/)
+[Integration](https://github.com/openstack/puppet-openstack-integration)
+
+
+## Puppet example
+
+`manifests/controller.pp`
+```
+class ionic_cloud::controller {
+  include ionic_cloud::server
+  include ionic_cloud::controller::rabbitmq
+  include ionic_cloud::controller::mysql
+  include ionic_cloud::controller::keystone
+  include ionic_cloud::controller::glance
+  include ionic_cloud::controller::neutron
+  include ionic_cloud::controller::nova
+}
+```
+
+
+## Puppet example
+
+`controller/keystone.pp`
+```
+class ionic_cloud::controller::keystone (
+  $allowed_hosts          = "10.0.0.0/24",
+  $bind_host              = '0.0.0.0',
+  $controller             = 'controller.ionic-cloud.gbraad.nl',
+  $password               = 'keystone',
+  $user                   = 'keystone',
+  $token_provider         = 'fernet',
+  $enable_fernet_setup    = true,
+) {
+
+  include ::keystone::client
+
+  class { '::keystone::db::mysql':
+    allowed_hosts => [$controller, $allowed_hosts],
+    password      => $password,
+    user          => $user
+  }
+
+  [...]
+```
+
+
+## Puppet example
+
+```
+  [...]
+
+  class { '::keystone':
+    admin_bind_host        => $bind_host,
+    admin_token            => $password,
+    database_connection    => "mysql+pymysql://${user}:${password}@${controller}/keystone",
+    enabled                => true,
+    public_bind_host       => $bind_host,
+    service_name           => 'httpd',
+    token_provider         => $token_provider,
+    enable_fernet_setup    => $enable_fernet_setup
+  }
+  
+  [...]
+```
 
 
 ## Deployment tools
