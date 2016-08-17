@@ -1175,6 +1175,12 @@ $ ansible-playbook upload-publickey.yml
 $ ansible-playbook create-instance.yml --extra-vars "cloud=trystack key_name=mykey"
 ```
 
+## Ceph
+
+Distributed storage solution
+
+![](img/ceph-architecture.png)
+
 
 ## High Availability
 
@@ -1211,10 +1217,6 @@ developer environments onto an OpenStack environments.
 ```
 $ vagrant up
 ```
-
-## Ceph
-
-Distributed storage solution
 
 
 ## Conclusion
