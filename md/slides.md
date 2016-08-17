@@ -979,7 +979,7 @@ The undercloud deploys workload nodes using an image-based deployment.
 [Reference](http://tripleo.org/)
 
 
-## Install customization
+## TripleO install customization
 
 ```
 undercloud$ cat << EOF > ~/templates/firstboot-environment.yaml
@@ -988,7 +988,7 @@ resource_registry:
 EOF
 ```
 
-## Install customization
+## TripleO install customization
 
 ```
 undercloud$ cat << EOF > ~/templates/firstboot-config.yaml
@@ -1025,6 +1025,19 @@ undercloud$ openstack overcloud deploy --templates \
    --neutron-tunnel-types vxlan --neutron-network-type vxlan \
    -e ~/templates/firstboot-environment.yaml
 ```
+
+
+## TripleO node types
+
+  * Storage nodes
+    * Block Storage
+    * Object Storage
+    * Ceph Storage
+
+  * Customization possible
+    * Storage on compute
+      [1](https://github.com/gbraad/openstack-tripleo-heat-templates/commit/57f8cb8412bb471aae2a7f2922fac4fddb9665a5)
+      [2](https://github.com/gbraad/redhat-openstack-ansible-role-tripleo-image-build/commit/83e3a9feed2c752e398d0513433362b8d93a354c)
 
 
 ## Kolla
