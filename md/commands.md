@@ -4,7 +4,9 @@
 These are examples used during the demonstration
 ```
 $ source ~/.stack/trystack    # https://trystack.org
-$ source ~/.stack/city-la1    # https://citycloud.com
+$ source ~/.stack/city-la1    # https://citycloud.com (Los Angeles)
+$ source ~/.stack/city-lon1   # https://citycloud.com (London)
+$ source ~/.stack/city-fra1   # https://citycloud.com (Frankfurt)
 $ source ~/.stack/dream       # https://dreamcompute.com
 $ source ~/.stack/ustack      # https://unitedstack.com
 ```
@@ -108,4 +110,11 @@ $ #openstack image create --disk-format qcow2 --file /tmp/centos7.qcow2 centos7
 $ openstack image create --disk-format raw --container-format bare --file /tmp/centos7.raw centos7
 $ net_id=$(openstack network list -f value |awk '{print $1}')
 $ openstack server create --flavor m1.small --image centos7 --nic net-id=${net_id} --key-name mykey test-instance
+```
+
+```
+$ wget -q http://cloud.centos.org/centos/7/atomic/images/CentOS-Atomic-Host-7-GenericCloud.qcow2.gz -O CentOS7-Atomic.qcow2.gz
+$ gunzip CentOS7-Atomic.qcow2.gz
+$ qemu-img convert CentOS7-Atomic.qcow2 CentOS7-Atomic.raw
+$ openstack image create --disk-format raw --container-format bare --file CentOS7-Atomic.raw CentOS7-Atomic
 ```

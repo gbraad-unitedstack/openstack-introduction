@@ -409,31 +409,6 @@ Note:
     * JSON / HTTP(S)
 
 
-## Concept of node types
-
-... before I continue...
-
-
-## Node types
-
-![](img/openstack-multinode.png)
-
-
-## Controller node
-
-Takes care of the administrational tasks of the OpenStack environment
-
-
-## Compute node
-
-Provides the computing resource for the OpenStack environment
-
-
-## Network node
-
-Handles networking within the OpenStack environment
-
-
 ## Nova
 
   * [Nova](http://docs.openstack.org/developer/nova/) provides power massively scalable, on demand, self service access to compute resources
@@ -834,6 +809,31 @@ The minimum that fits your use-case
 [Sample configurations](https://www.openstack.org/software/sample-configs/) (case studies)
 
 
+## Concept of node types
+
+... before I continue...
+
+
+## Node types
+
+![](img/openstack-multinode.png)
+
+
+## Controller node
+
+Takes care of the administrational tasks of the OpenStack environment
+
+
+## Compute node
+
+Provides the computing resource for the OpenStack environment
+
+
+## Network node
+
+Handles networking within the OpenStack environment
+
+
 ## Puppet modules
 
 Utilizes Puppet to configure and deploy OpenStack components
@@ -1211,6 +1211,10 @@ developer environments onto an OpenStack environments.
 ```
 $ vagrant up
 ```
+
+## Ceph
+
+Distributed storage solution
 
 
 ## Conclusion
