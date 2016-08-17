@@ -17,7 +17,8 @@ Gerard Braad
 
 ## Who am I
 
-  * <span class="orange">F/OSS</span>
+  * <span class="orange">F</span>/OSS  
+    (Free / Open Source Software)
 
 
 ## Who am I
@@ -37,7 +38,12 @@ Gerard Braad
 
 ## Who am I
 
-  * ...
+  * Teacher / Trainer
+
+
+## Who am I
+
+  * F/OSS & IT Consultant
 
 
 ## What is OpenStack
@@ -46,7 +52,7 @@ Gerard Braad
 
 ## OpenStack
 
-![Diagram](img/openstack-software-diagram.png)
+![](img/openstack-software-diagram.png)
 
 
 ## What is OpenStack
@@ -58,11 +64,12 @@ Gerard Braad
 
 A joint project
 
-  * Rackspace Hosting (Cloud Files)
-  * NASA (Nebula)
+  * Rackspace Hosting  
+    (Cloud Files)
+  * NASA  
+    (Nebula)
 
-to bring 
-_cloud-computing services running on standard hardware_.
+to bring _cloud-computing services running on standard hardware_.
 
 
 ## "Austin"
@@ -75,6 +82,11 @@ First community release followed 4 months later.
     (Nova)
 
 [Source](https://wiki.openstack.org/wiki/ReleaseNotes/Austin)
+
+
+## OpenStack
+
+  * Umbrella prohject
 
 
 ## OpenStack Mission
@@ -742,6 +754,11 @@ $ openstack server add volume [server-name] [volume-name]
   * Consistency service
 
 
+## OpenStack services continued
+
+  * Ceilometer, Heat, Ironic, Magnum, Zaqar, Manilla, and many more...
+
+
 ## Ceilometer
 
   * Telemetry service
@@ -756,6 +773,89 @@ $ openstack server add volume [server-name] [volume-name]
   * Comaptible with AWS CloudFormation
   * Uses a templating mechanism
   * Controls complex groups of cloud resources
+
+
+## Heat
+
+```
+heat_template_version: 2016-04-08
+
+description: Heat template to deploy an instance
+parameters:
+  ssh_key_name:
+    type: string
+    label: Key Pair name
+    description : Name of the key pair to enable SSH access to the instance.
+  flavor_name:
+    type: string
+    label: Flavor Name
+    description: Instance type for the development environment
+    default: m1.small
+    constraints:
+      - allowed_values: [m1.small, m1.medium]
+        description: flavor_name must be one of m1.small or m1.medium
+  root_password:
+    label: root password
+    default: secrete
+    hidden: true
+    description: root password for the development environment
+    type: string
+    constraints:
+    - length: { min: 4, max: 25 }
+      description: Password MUST be between 1 - 25 characters
+  private_network:
+    type: string
+    label: Private network name or ID
+    description: Network to attach instance to
+    default: private
+```
+
+
+## Heat
+
+```
+resources:
+  server:
+    type: OS::Nova::Server
+    properties:
+      name: devenv
+      flavor: { get_param: flavor_name }
+      image: Fedora23
+      key_name: { get_param: ssh_key_name }
+      networks:
+        - network: { get_param: private_network }
+      user_data:
+        str_replace:
+          template: |
+            #!/usr/bin/env bash
+            # Root password
+            sudo echo root:%root_password% | chpasswd
+            # Installation script
+            [...]
+          params:
+            "%root_password%": { get_param: root_password }
+```
+
+
+## Heat
+
+```
+  security_group:
+    type: OS::Neutron::SecurityGroup
+    properties:
+      description: Add security group rules for the development environment
+      name: devenv
+      rules:
+        - remote_ip_prefix: 0.0.0.0/0
+          protocol: tcp
+          port_range_min: 22
+          port_range_max: 22
+
+outputs:
+  server_private_ip:
+    description: IP address of development environment in the private network
+    value: { get_attr: [ server, first_address ] }
+```
 
 
 ## Ceilometer + Heat
@@ -1050,89 +1150,6 @@ Containerized OpenStack project, targets Ubuntu and CentOS to run in Docker cont
   * source deployment
 
 Installer generates containers (comparable to images).
-
-
-## Heat
-
-```
-heat_template_version: 2016-04-08
-
-description: Heat template to deploy an instance
-parameters:
-  ssh_key_name:
-    type: string
-    label: Key Pair name
-    description : Name of the key pair to enable SSH access to the instance.
-  flavor_name:
-    type: string
-    label: Flavor Name
-    description: Instance type for the development environment
-    default: m1.small
-    constraints:
-      - allowed_values: [m1.small, m1.medium]
-        description: flavor_name must be one of m1.small or m1.medium
-  root_password:
-    label: root password
-    default: secrete
-    hidden: true
-    description: root password for the development environment
-    type: string
-    constraints:
-    - length: { min: 4, max: 25 }
-      description: Password MUST be between 1 - 25 characters
-  private_network:
-    type: string
-    label: Private network name or ID
-    description: Network to attach instance to
-    default: private
-```
-
-
-## Heat
-
-```
-resources:
-  server:
-    type: OS::Nova::Server
-    properties:
-      name: devenv
-      flavor: { get_param: flavor_name }
-      image: Fedora23
-      key_name: { get_param: ssh_key_name }
-      networks:
-        - network: { get_param: private_network }
-      user_data:
-        str_replace:
-          template: |
-            #!/usr/bin/env bash
-            # Root password
-            sudo echo root:%root_password% | chpasswd
-            # Installation script
-            [...]
-          params:
-            "%root_password%": { get_param: root_password }
-```
-
-
-## Heat
-
-```
-  security_group:
-    type: OS::Neutron::SecurityGroup
-    properties:
-      description: Add security group rules for the development environment
-      name: devenv
-      rules:
-        - remote_ip_prefix: 0.0.0.0/0
-          protocol: tcp
-          port_range_min: 22
-          port_range_max: 22
-
-outputs:
-  server_private_ip:
-    description: IP address of development environment in the private network
-    value: { get_attr: [ server, first_address ] }
-```
 
 
 ## Ansible as a client
