@@ -1039,6 +1039,8 @@ undercloud$ openstack overcloud deploy --templates \
       [1](https://github.com/gbraad/openstack-tripleo-heat-templates/commit/57f8cb8412bb471aae2a7f2922fac4fddb9665a5)
       [2](https://github.com/gbraad/redhat-openstack-ansible-role-tripleo-image-build/commit/83e3a9feed2c752e398d0513433362b8d93a354c)
 
+  * Composable services [3](https://hardysteven.blogspot.co.il/2016/08/tripleo-composable-services-101.html)
+
 
 ## Kolla
 
