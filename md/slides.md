@@ -12,9 +12,6 @@ Gerard Braad
 ## Apology
 
 
-## English only
-
-
 ## Who am I
 
   * <span class="orange">F</span>/OSS  
@@ -86,7 +83,7 @@ First community release followed 4 months later.
 
 ## OpenStack
 
-  * Umbrella prohject
+  * Umbrella project
 
 
 ## OpenStack Mission
@@ -243,10 +240,16 @@ I want to deploy and run an application in a location of my choosing so that I c
 Bridge gap between community
 
 
+## Community engagement
+
+  * to keep up with the changes...
+
+
 ## OpenStack is not just OpenStack
 
   * Ceph (storage)
   * Puppet / Ansible
+  * OVS
   * ...
 
 
@@ -756,7 +759,7 @@ $ openstack server add volume [server-name] [volume-name]
 
 ## OpenStack services continued
 
-  * Ceilometer, Heat, Ironic, Magnum, Zaqar, Manilla, and many more...
+  * Astara, Barbican, Ceilometer, Cloudkitty, Designate, Freezer, Heat, Kuryr, Magnum, Manila, Mistral, Monasca, Murano, Oslo, Sahara, Searchlight, Senlin, Smaug, Solum, Tacker, Trove, Vitrage, Watcher, Zaqar
 
 
 ## Ceilometer
@@ -1207,6 +1210,13 @@ $ ansible-playbook upload-publickey.yml
 $ ansible-playbook create-instance.yml --extra-vars "cloud=trystack key_name=mykey"
 ```
 
+
+## Disaster recovery and backup
+
+  * Freezer
+  * Smaug
+
+
 ## Ceph
 
 Distributed storage solution
@@ -1269,6 +1279,8 @@ $ vagrant up
   * http://docs.openstack.org/mitaka/install-guide-rdo/index.html
   * http://docs.openstack.org/mitaka/config-reference/index.html
   * https://access.redhat.com/documentation/en/red-hat-openstack-platform/
+  * http://wiki.openstack.org/
+  * http://docs.openstack.org/ops/
 
 
 ## Stay in touch
