@@ -74,7 +74,7 @@ First community release followed 4 months later.
 
    * Object Storage  
     (Swift)
-  * Compute
+  * Compute  
     (Nova)
 
 [Source](https://wiki.openstack.org/wiki/ReleaseNotes/Austin)
