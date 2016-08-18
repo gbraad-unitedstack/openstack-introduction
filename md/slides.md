@@ -248,8 +248,8 @@ Bridge gap between community
 ## OpenStack is not just OpenStack
 
   * Ceph (storage)
-  * Puppet / Ansible
-  * OVS
+  * Puppet, Ansible
+  * OPNFV, Open vSwitch
   * ...
 
 
@@ -759,7 +759,7 @@ $ openstack server add volume [server-name] [volume-name]
 
 ## OpenStack services continued
 
-  * Astara, Barbican, Ceilometer, Cloudkitty, Designate, Freezer, Heat, Kuryr, Magnum, Manila, Mistral, Monasca, Murano, Oslo, Sahara, Searchlight, Senlin, Smaug, Solum, Tacker, Trove, Vitrage, Watcher, Zaqar
+  * Astara, Barbican, Ceilometer, Cloudkitty, Designate, Freezer, Heat, Kuryr, Magnum, Manila, Mistral, Monasca, Murano, Oslo, Rally, Sahara, Searchlight, Senlin, Smaug, Solum, Tempest, Tacker, Trove, Vitrage, Watcher, Zaqar
 
 
 ## Ceilometer
