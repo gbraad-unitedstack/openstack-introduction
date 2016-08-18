@@ -46,7 +46,6 @@ Gerard Braad
 ## What is OpenStack
 
 
-
 ## OpenStack
 
 ![](img/openstack-software-diagram.png)
