@@ -1259,6 +1259,8 @@ developer environments onto an OpenStack environments.
 $ vagrant up
 ```
 
+[Example](https://github.com/ceph/ceph-ansible/blob/master/Vagrantfile)
+
 
 ## Conclusion
 
