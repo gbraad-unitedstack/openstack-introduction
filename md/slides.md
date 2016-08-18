@@ -72,7 +72,7 @@ to bring _cloud-computing services running on standard hardware_.
 
 First community release followed 4 months later.
 
-  * Object Storage  
+   * Object Storage  
     (Swift)
   * Compute
     (Nova)
@@ -386,32 +386,22 @@ It enables Web-based interactions with the OpenStack Compute cloud controller th
 ## Install client
 
 ```
-pip install python-openstackclient
+(.venv) $ pip install python-openstackclient
 ```
 
 ```
-yum install -y python-openstackclient
+$ sudo yum install -y python-openstackclient
 ```
 
 ```
-apt-get install -y python-openstackclient
+$ sudo apt-get install -y python-openstackclient
 ```
 
-
-## Basic commands
-
-
 ```
-openstack [resource] [command] [options] 
+$ docker pull gbraad/openstack-client:alpine
 ```
 
-Note:
-
-  * either use `source ~/.stack/dream`
-  * or use `--os-cloud dream` as parameter.
-
-[Documentation](http://docs.openstack.org/developer/python-openstackclient/)
-[clouds.yaml](http://docs.openstack.org/developer/python-openstackclient/configuration.html)
+[Info](http://github.com/gbraad/scratchpad/tree/master/technology/openstack/client.md)
 
 
 ## Client communication
@@ -421,6 +411,21 @@ Note:
     * Resource oriented
     * version-ed (microversion)
     * JSON / HTTP(S)
+
+
+## Basic commands
+
+```
+$ openstack [resource] [command] [options] 
+```
+
+Note:
+
+  * either use `source ~/.stack/dream`
+  * or use `--os-cloud dream` as parameter.
+
+[Documentation](http://docs.openstack.org/developer/python-openstackclient/)
+[clouds.yaml](http://docs.openstack.org/developer/python-openstackclient/configuration.html)
 
 
 ## Nova
