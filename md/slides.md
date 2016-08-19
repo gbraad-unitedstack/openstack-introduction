@@ -72,7 +72,7 @@ to bring _cloud-computing services running on standard hardware_.
 
 First community release followed 4 months later.
 
-   * Object Storage  
+  * Object Storage  
     (Swift)
   * Compute  
     (Nova)
@@ -87,7 +87,7 @@ First community release followed 4 months later.
 
 ## OpenStack Mission
 
-_To produce a ubiquitous **Open Source Cloud Computing platform** that is **easy to use**, simple to implement, **interoperable between deployments**, works well at all scales, and **meets the needs of users and operators of both public and private clouds**_.
+_To produce a ubiquitous <span class="orange">**Open Source Cloud Computing platform**</span> that is <span class="lightblue">**easy to use**</span>, simple to implement, <span class="orange">**interoperable between deployments**</span>, works well at all scales, and <span class="lightblue">**meets the needs of users and operators of both public and private clouds**</span>_.
 
 
 ## OpenStack Mission
@@ -98,16 +98,16 @@ _To produce a ubiquitous **Open Source Cloud Computing platform** that is **easy
 ## OpenStack Mission
 
   * Produce a ubiquitous
-    _Open Source Cloud Computing_ platform
+    <span class="orange">_Open Source Cloud Computing_</span> platform
 
 
 ## Open Source
 
-Is an ideology / way of doing
+  * Is an ideology / way of doing
+  * Promotes collaboration/sharing of ideas
+  * The licensing promotes the re-use of material
 
-Promotes collaboration/sharing of ideas
-
-The licensing promotes the re-use of material
+[More info](http://gbraad.gitlab.io/open-source-culture/)
 
 
 ## Open Source
@@ -130,9 +130,9 @@ Customer is not dependent on a vendor for products and services
 
 ## Cloud Computing
 
-... is a model for enabling convenient, **on-demand network access to a shared pool of configurable computing resources**.
+... is a model for enabling convenient, <span class="orange">**on-demand network access to a shared pool of configurable computing resources**</span>.
 
-(eg. networks, servers, storage, applications, and services) **that can be rapidly provisioned and released** with minimal management effort or service provider interaction.
+(eg. networks, servers, storage, applications, and services) <span class="lightblue">**that can be rapidly provisioned and released**</span> with minimal management effort or service provider interaction.
 
 [Source](http://www.nist.gov/itl/cloud/)
 
@@ -141,8 +141,8 @@ Customer is not dependent on a vendor for products and services
 
   * Produce the ubiquitous
     _Open Source Cloud Computing_ platform
-  * easy to use, simple to implement
-  * works well at all scales
+  * <span class="lightblue">easy to use, simple to implement</span>
+  * <span class="lightblue">works well at all scales</span>
 
 
 ## OpenStack Mission
@@ -151,8 +151,8 @@ Customer is not dependent on a vendor for products and services
     _Open Source Cloud Computing_ platform
   * easy to use, simple to implement
   * works well at all scales
-  * interoperable
-  * meet the needs
+  * <span class="lightblue">interoperable</span>
+  * <span class="lightblue">meet the needs</span>
 
 
 ## Why would people need OpenStack
