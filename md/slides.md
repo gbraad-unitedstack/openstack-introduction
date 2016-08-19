@@ -198,7 +198,7 @@ I want to deploy and run an application in a location of my choosing so that I c
 
   * project
   * <span class="lightblue">foundation</span>
- 
+
 
 ## OpenStack Foundation
 
