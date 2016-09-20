@@ -1,13 +1,13 @@
-image: registry.gitlab.com/gbraad/docugen:latest
-
 pages:
+  image: registry.gitlab.com/gbraad/docugen:latest
   script:
-  - pandoc -t html5 --template template/reveal-slides-template.html --standalone --section-divs -o index.html ./md/index.md
-  - pandoc -t html5 --template template/reveal-slides-template.html --standalone --section-divs -o slides.html ./md/slides.md
-  - pandoc -t html5 --template template/reveal-slides-template.html --standalone --section-divs -o commands.html ./md/commands.md
-  - mkdir .public
-  - cp -r * .public
-  - mv .public public
+    - git clone https://gitlab.com/gbraad/document-generation-assets.git assets --depth 1
+    - mkdir public
+    - cp -r assets/public-content/reveal/* public/
+    - pandoc -t html5 --template assets/templates/reveal-slides-template.html --standalone --section-divs ./index.md -o ./public/index.html
+    - pandoc -t html5 --template assets/templates/reveal-slides-template.html --standalone --section-divs ./slides.md -o ./public/slides.html
+    - pandoc -t html5 --template assets/templates/reveal-slides-template.html --standalone --section-divs ./command.md -o ./public/commands.html
+    - cp -r img public/
   artifacts:
     paths:
     - public
